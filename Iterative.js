@@ -6,10 +6,12 @@ function IterateOverTree(root) {
     root = {node:root,level:0};
     while (root !== undefined) {
         console.log(FormatValue(root.node.value,root.level));
-
+        let tmp = [];
         root.node.nodes.forEach((node=>{
-            stack.push({node:node,level:root.level+1});
+            tmp.push({node:node,level:root.level+1});
         }));
+        // because of reversing nodes
+        stack.push(...tmp.reverse());
         root = stack.pop();
     }
 };
@@ -23,5 +25,4 @@ function FormatValue(value, level) {
 }
 
 // MAIN
-// side effect: reverses the tree
 IterateOverTree(data);
