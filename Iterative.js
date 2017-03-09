@@ -23,5 +23,5 @@ function FormatValue(value, level) {
 }
 
 // MAIN
-
+// side effect: reverses the tree
 IterateOverTree(data);
