@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem';
-import Data from '../helpers/DataFeed';
+
 import Preprocess from '../helpers/Iterative';
 class IterativeTreeList extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class IterativeTreeList extends React.Component {
         }).concat();
     }
     render() {
-        let items = Preprocess(Data);
+        let items = Preprocess(this.props.data);
         console.log(items);
         return (
             <div>
@@ -25,7 +25,6 @@ class IterativeTreeList extends React.Component {
             </div>
         );
     }
-
 }
 
 export default IterativeTreeList;

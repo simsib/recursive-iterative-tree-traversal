@@ -1,16 +1,19 @@
 function IterateOverTree(root) {
-    let level = 0;
+    let level = -1;
     let stack = [];
     let result = [];
-    root = { node: root, level: 0 };
+    root = { node: root, level: level };
     while (root !== undefined) {
-        result.push(
-            {
-                value: root.node.value,
-                level: root.level
-            });
+        if (root.level !== -1) {
+            result.push(
+                {
+                    value: root.node.value,
+                    level: root.level
+                });
+        }
         root.node.nodes
-            .reverse()
+            .slice(0)   // because reverse does a reverse on reference
+            .reverse() // because my stack works like that
             .forEach((node => {
                 stack.push(
                     {
@@ -23,8 +26,8 @@ function IterateOverTree(root) {
     return result;
 };
 
-function Preprocess(items) {
-    return IterateOverTree(items);
+function Preprocess(tree) {
+    return IterateOverTree(tree);
 }
 
 export default Preprocess;

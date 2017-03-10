@@ -1,6 +1,5 @@
 import React from 'react';
 import ListItem from './ListItem';
-import Data from '../helpers/DataFeed';
 import Preprocess from '../helpers/Recursive'
 class RecursiveTreeList extends React.Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class RecursiveTreeList extends React.Component {
         }).concat();
     }
     render() {
-        let items = Preprocess(Data);
+        let items = Preprocess(this.props.data);
         return (
             <div>
                 <h3>{this.props.name}</h3>

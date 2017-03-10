@@ -1,4 +1,5 @@
 import React from 'react';
+import Data from '../helpers/DataFeed';
 import RecursiveTreeList from './RecursiveTreeList';
 import IterativeTreeList from './IterativeTreeList';
 class App extends React.Component {
@@ -6,8 +7,8 @@ class App extends React.Component {
     return (
       <div>
          <h1>Wazeeee</h1>
-         <IterativeTreeList name="Iterative"></IterativeTreeList>         
-         <RecursiveTreeList name="Recursive"></RecursiveTreeList>
+         <IterativeTreeList name="Iterative" data={Data}></IterativeTreeList>         
+         <RecursiveTreeList name="Recursive" data={Data}></RecursiveTreeList>
       </div>);
   }
 }

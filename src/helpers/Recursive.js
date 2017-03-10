@@ -1,18 +1,21 @@
-function LoopNodes(root, level = 0, items) {
-    items.push({ value: root.value, level });
+function LoopNodes(root, level, items) {
+    if (level !== -1) {
+        items.push({ value: root.value, level });
+    }
     if (root.nodes.length > 0) {
         level++;
         root.nodes
-            .reverse()
+            .slice(0)   // because reverse does a reverse on reference
             .forEach((node) => {
                 LoopNodes(node, level, items);
             });
     }
     return;
 };
-function Preprocess(nodes) {
+function Preprocess(tree) {
     let items = [];
-    LoopNodes(nodes, 0, items);
+    // -1 offset for main root element
+    LoopNodes(tree, -1, items);
     return items;
 }
 export default Preprocess;

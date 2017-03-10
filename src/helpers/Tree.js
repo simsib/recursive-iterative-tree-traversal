@@ -1,6 +1,6 @@
-export default class TreeNode {
-    constructor(value, nodes=[]) {
-        this.value = value;
+export default class Tree {
+    constructor(name, nodes = []) {
+        this.name = name;
         this.nodes = nodes.slice();
   }
   addNewNode(node){
