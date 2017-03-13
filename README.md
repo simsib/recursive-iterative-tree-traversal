@@ -5,7 +5,7 @@
 ```npm install -g webpack-dev-server```
 2. ```npm install```
 3. ```npm run dev```
-4. visit [localhost](localhost:8080)
+4. visit [localhost](http://localhost:8080)
 
 ---
 ### for run simple scripts
