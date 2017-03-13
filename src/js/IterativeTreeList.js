@@ -9,13 +9,13 @@ class IterativeTreeList extends React.Component {
     renderItems(items) {
         return items.map(item => {
             return (
-                <ListItem key={item.value} {...item}></ListItem>
+                <ListItem key={item.value} handleAdd={(node,value)=>{
+                    this.props.handleAdd(node,value)}} {...item}></ListItem>
             );
         }).concat();
     }
     render() {
         let items = Preprocess(this.props.data);
-        console.log(items);
         return (
             <div>
                 <h3>{this.props.name}</h3>

@@ -8,7 +8,8 @@ class RecursiveTreeList extends React.Component {
     renderItems(items) {
         return items.map(item => {
             return (
-                <ListItem key={item.value} {...item}></ListItem>
+                                <ListItem key={item.value} handleAdd={(node,value)=>{
+                    this.props.handleAdd(node,value)}} {...item}></ListItem>
             );
         }).concat();
     }
