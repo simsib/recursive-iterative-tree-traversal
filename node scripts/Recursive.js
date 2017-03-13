@@ -5,7 +5,7 @@ function LoopNodes(root, level=0) {
     console.log(helper.FormatValue(root.value,level)); 
     if (root.nodes.length > 0) {
         level++;
-        root.nodes.forEach((node)=>{
+        root.nodes.slice(0).forEach((node)=>{
             LoopNodes(node,level);
         });
     }
