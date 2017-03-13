@@ -12,10 +12,11 @@ function LoopNodes(root, level, items) {
     }
     return;
 };
-function Preprocess(tree) {
+export function Preprocess(tree) {
+    console.info(`Using recursive method!`);
+
     let items = [];
     // -1 offset for main root element
     LoopNodes(tree, -1, items);
     return items;
 }
-export default Preprocess;

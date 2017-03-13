@@ -4,6 +4,6 @@ export default class TreeNode {
         this.nodes = nodes.slice();
     }
     addNewNode(node) {
-        this.nodes = [...this.nodes, node];
+        this.nodes = [...this.nodes,node];
     }
 }

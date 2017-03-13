@@ -26,8 +26,8 @@ function IterateOverTree(root) {
     return result;
 };
 
-function Preprocess(tree) {
+export function Preprocess(tree) {
+    console.info(`Using iterative method!`);
     return IterateOverTree(tree);
 }
 
-export default Preprocess;

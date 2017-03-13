@@ -1,8 +1,10 @@
 import React from 'react';
 import Data from '../helpers/DataFeed';
 import TreeNode from '../helpers/TreeNode.js';
-import RecursiveTreeList from './RecursiveTreeList';
-import IterativeTreeList from './IterativeTreeList';
+import TreeList from './TreeList';
+import {Preprocess as IterativePreprocess} from '../helpers/Iterative';
+import {Preprocess as RecursivePreprocess} from '../helpers/Recursive';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,9 +20,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Wazeeee</h1>
-        <IterativeTreeList name="Iterative" data={this.state.data} handleAdd={this.handleAdd.bind(this)}></IterativeTreeList>
-        <RecursiveTreeList name="Recursive" data={this.state.data} handleAdd={this.handleAdd.bind(this)}></RecursiveTreeList>
+        <TreeList name="Iterative" data={this.state.data} handleAdd={this.handleAdd.bind(this)} preprocess={IterativePreprocess}></TreeList>
+        <TreeList name="Recursive" data={this.state.data} handleAdd={this.handleAdd.bind(this)} preprocess={RecursivePreprocess}></TreeList>
       </div>);
   }
 }
