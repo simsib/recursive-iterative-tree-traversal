@@ -1,6 +1,6 @@
 # recursive-iterative-tree-traversal
 
-### for react app 
+### for running  react app 
 1. have webpack-dev-server instaled globaly
 ```npm install -g webpack-dev-server```
 2. ```npm install```
@@ -8,9 +8,14 @@
 4. visit [localhost](http://localhost:8080)
 
 ---
-### for run simple scripts
+### for running simple scripts
+
 ```cd "node scripts"```
+
 for recursive run 
+
 ```node Recursive.js``` 
+
 or for iterative run
+
 ```node Iterative.js```
