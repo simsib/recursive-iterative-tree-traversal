@@ -35,13 +35,12 @@ class ListItem extends React.Component {
                     <label>
                         <input autoFocus  type="text" value={this.state.newValue} onChange={this.handleChange.bind(this)} />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="add new node" />
                 </form>
             )
         }
     }
     render() {
-        this.formInput;
         let style = {
             paddingLeft: `${this.props.level * 20}px`,
             cursor: 'pointer'

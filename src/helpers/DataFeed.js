@@ -16,6 +16,10 @@ node2.addNewNode(node6);
 let tree = new Tree("My Tree", [node1, node7]);
 
 function find(value) {
+    if (value===null)
+    {
+        return tree;
+    }
     let stack = [];
     let node = tree;
     let found = false;
