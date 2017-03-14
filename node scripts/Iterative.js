@@ -2,16 +2,17 @@ const data = require('./DataFeed.js');
 const helper = require('./Helper.js');
 let stack = [];
 function IterateOverTree(root) {
-    let level = 0;
-    root = {node:root,level:0};
+    root = { node: root, level: -1 };
     while (root !== undefined) {
-        console.log(helper.FormatValue(root.node.value,root.level));
+        if (root.node.value !== undefined) {
+            console.log(helper.FormatValue(root.node.value, root.level));
+        }
         root.node.nodes
-		        .slice(0)
-		        .reverse()
-		        .forEach((node=>{
-		            stack.push({node:node,level:root.level+1});
-		        }));
+            .slice(0)
+            .reverse()
+            .forEach((node => {
+                stack.push({ node: node, level: root.level + 1 });
+            }));
         root = stack.pop();
     }
 };
