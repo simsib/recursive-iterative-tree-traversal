@@ -7,6 +7,7 @@ function IterateOverTree(root) {
         if (root.level !== -1) {
             result.push(
                 {
+                    id: root.node.id,
                     value: root.node.value,
                     level: root.level
                 });

@@ -12,9 +12,10 @@ class App extends React.Component {
       data: Data.Data
     }
   }
-  handleAdd(item,value) {
-    let node = Data.Find(item);
-    node.addNewNode(new TreeNode(value));
+  handleAdd(id,value) {
+    console.log(id,value);
+    let node = Data.Find(id);
+    Data.AddNewNode(node,value)
     this.setState({ data: Data.Data });
   }
   render() {

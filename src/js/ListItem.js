@@ -8,7 +8,7 @@ class ListItem extends React.Component {
         }
     }
     handleSubmit(newValue) {
-        this.props.handleAdd(this.props.value,newValue);
+        this.props.handleAdd(this.props.id,newValue);
         this.setState({ showInput: false});
     }
     renderListItem(style) {

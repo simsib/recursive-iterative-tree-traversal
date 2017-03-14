@@ -1,6 +1,6 @@
 function LoopNodes(root, level, items) {
     if (level !== -1) {
-        items.push({ value: root.value, level });
+        items.push({id:root.id, value: root.value, level });
     }
     if (root.nodes.length > 0) {
         level++;
