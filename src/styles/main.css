@@ -1,0 +1,10 @@
+.list-item {
+    cursor: pointer;
+    /*border-left: black solid 1px;*/
+}
+.flex-container {
+    display: flex; /* or inline-flex */
+}
+.list-container {
+    flex-grow: 5;
+}
