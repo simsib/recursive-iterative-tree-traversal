@@ -1,21 +1,16 @@
 import React from 'react';
+import InputForm from './InputForm';
 class ListItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showInput: false,
-            newValue: ""
         }
     }
-    handleChange(event) {
-        this.setState({ newValue: event.target.value });
+    handleSubmit(newValue) {
+        this.props.handleAdd(this.props.value,newValue);
+        this.setState({ showInput: false});
     }
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.handleAdd(this.props.value, this.state.newValue);
-        this.setState({ showInput: false, newValue: "" });
-    }
-
     renderListItem(style) {
         return (
             <div onClick={() => {
@@ -27,26 +22,16 @@ class ListItem extends React.Component {
     }
     renderForm(formStyle) {
         if (this.state.showInput) {
-            return (
-                <form
-                    style={formStyle}
-                    onSubmit={this.handleSubmit.bind(this)}
-                >
-                    <label>
-                        <input autoFocus  type="text" value={this.state.newValue} onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <input type="submit" value="add new node" />
-                </form>
+            return (<InputForm formStyle={formStyle} handleSubmit={this.handleSubmit.bind(this)}/>
             )
         }
     }
     render() {
         let style = {
-            paddingLeft: `${this.props.level * 20}px`,
-            cursor: 'pointer'
+            marginLeft: `${this.props.level * 20}px`,
         }
         let formStyle = {
-            paddingLeft: `${(this.props.level + 1) * 20}px`,
+            marginLeft: `${(this.props.level + 1) * 20}px`,
         }
         return (
             <div>

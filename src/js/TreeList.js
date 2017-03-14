@@ -1,12 +1,12 @@
 import React from 'react';
 import ListItem from './ListItem';
+import InputForm from './InputForm';
 
 class TreeList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showInput: false,
-            newValue: ""
         }
     }
     renderItems(items) {
@@ -18,35 +18,22 @@ class TreeList extends React.Component {
             );
         }).concat();
     }
-    handleChange(event) {
-        this.setState({ newValue: event.target.value });
-    }
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.handleAdd(null, this.state.newValue);
-        this.setState({ showInput: false, newValue: "" });
+    handleSubmit(newValue) {
+        this.props.handleAdd(null, newValue);
+        this.setState({ showInput: false});
     }
 
     renderForm(formStyle) {
         if (this.state.showInput) {
             return (
-                <form
-                    style={formStyle}
-                    onSubmit={this.handleSubmit.bind(this)}
-                >
-                    <label>
-                        <input autoFocus type="text" value={this.state.newValue} onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <input type="submit" value="add new node" />
-                </form>
+                <InputForm formStyle={formStyle} handleSubmit={this.handleSubmit.bind(this)}/>
             )
         }
     }
     render() {
         let items = this.props.preprocess(this.props.data);
         return (
-            <div>
-                {/*<h3 onClick={() => { this.props.handleAdd(null, "new tree node") }}>{this.props.name}</h3>*/}
+            <div className="list-container">
                 <h3 onClick={() => { this.setState({ showInput: !this.state.showInput }) }}>{this.props.name}</h3>
                 {this.renderForm({})}
                 <div className="list">

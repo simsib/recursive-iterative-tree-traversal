@@ -19,7 +19,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="flex-container">
         <TreeList name="Iterative" data={this.state.data} handleAdd={this.handleAdd.bind(this)} preprocess={IterativePreprocess}></TreeList>
         <TreeList name="Recursive" data={this.state.data} handleAdd={this.handleAdd.bind(this)} preprocess={RecursivePreprocess}></TreeList>
       </div>);
