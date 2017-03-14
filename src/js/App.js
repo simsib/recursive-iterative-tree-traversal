@@ -1,6 +1,5 @@
 import React from 'react';
 import Data from '../helpers/DataFeed';
-import TreeNode from '../helpers/TreeNode.js';
 import TreeList from './TreeList';
 import { Preprocess as IterativePreprocess } from '../helpers/Iterative';
 import { Preprocess as RecursivePreprocess } from '../helpers/Recursive';
