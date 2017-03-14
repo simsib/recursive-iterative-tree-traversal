@@ -8,3 +8,6 @@
 .list-container {
     flex-grow: 5;
 }
+.clickable {
+    cursor:pointer;
+}

@@ -34,7 +34,7 @@ class TreeList extends React.Component {
         let items = this.props.preprocess(this.props.data);
         return (
             <div className="list-container">
-                <h3 onClick={() => { this.setState({ showInput: !this.state.showInput }) }}>{this.props.name}</h3>
+                <h3 className="clickable" onClick={() => { this.setState({ showInput: !this.state.showInput }) }}>{this.props.name}</h3>
                 {this.renderForm({})}
                 <div className="list">
                     {this.renderItems(items)}
