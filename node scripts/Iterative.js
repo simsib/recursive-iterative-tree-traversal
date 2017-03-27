@@ -1,21 +1,30 @@
 const data = require('./DataFeed.js');
 const helper = require('./Helper.js');
-let stack = [];
+
 function IterateOverTree(root) {
+    let stack = [];
+    let result = [];
     root = { node: root, level: -1 };
     while (root !== undefined) {
         if (root.node.value !== undefined) {
-            console.log(helper.FormatValue(root.node.value, root.level));
+            result.push(helper.FormatValue(root.node.value, root.level));
         }
-        root.node.nodes
-            .slice(0)
-            .reverse()
-            .forEach((node => {
-                stack.push({ node: node, level: root.level + 1 });
-            }));
+        stack.push(
+            ...(root.node.nodes
+                .slice(0)
+                .reverse()
+                .map(x => {
+                    console.log(x);
+                    return {
+                        node: x,
+                        level: root.level + 1
+                    }
+                })));
         root = stack.pop();
     }
+    return result;
 };
 
 // MAIN
-IterateOverTree(data);
+let result = IterateOverTree(data);
+result.forEach(x=>console.log(x));

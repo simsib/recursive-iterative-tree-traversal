@@ -12,16 +12,17 @@ function IterateOverTree(root) {
                     level: root.level
                 });
         }
-        root.node.nodes
-            .slice(0)   // because reverse does a reverse on reference
-            .reverse() // because my stack works like that
-            .forEach((node => {
-                stack.push(
-                    {
-                        node: node,
+        stack.push(
+            ...(root.node.nodes
+                .slice(0)
+                .reverse()
+                .map(x => {
+                    console.log(x);
+                    return {
+                        node: x,
                         level: root.level + 1
-                    });
-            }));
+                    }
+                })));
         root = stack.pop();
     }
     return result;
