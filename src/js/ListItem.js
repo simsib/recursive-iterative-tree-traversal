@@ -17,7 +17,7 @@ class ListItem extends React.Component {
                 this.setState({ showInput: !this.state.showInput })
             }}
                 className="list-item"
-                style={style}>- {this.props.value}</div>
+                style={style}> {this.props.value}</div>
         )
     }
     renderForm(formStyle) {
